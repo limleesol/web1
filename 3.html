@@ -1,29 +1,118 @@
 <!doctype html>
 <html>
 <head>
-<title>아티 arty</title>
-<meta charset="utf-8">
+  <title>아티 arty</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4LS04RTYL"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-K4LS04RTYL');
+
+  var Links = {
+    setColor:function (color){
+      var alist = document.querySelectorAll('a');
+      var i = 0;
+      while(i < alist.length){
+        alist[i].style.color = color;
+        i = i + 1;
+      }
+    }
+  }
+
+  /*
+  function LinksSetColor(color){
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length){
+      alist[i].style.color = color;
+      i = i + 1;
+    }
+  }
+*/
+  var Body = {
+    setColor:function (color){
+      document.querySelector('body').style.color = color;
+    }
+  ,
+    setBackgroundColor:function(color){
+      document.querySelector('body').style.backgroundColor = color;
+
+    }
+  }
+  /*
+  function bodySetColor(color){
+    document.querySelector('body').style.color = color;}
+
+  function bodySetBackgroundColor(color){
+    document.querySelector('body').style.backgroundColor = color;
+  }
+  */
+  function nightDayHandler(self){
+      var target = document.querySelector('body')
+      if(self.value === 'night'){
+        Body.setBackgroundColor('black');
+        Body.setColor('white');
+        self.value = 'day';
+        Links.setColor('powderblue');
+      }
+
+      else{
+        Body.setBackgroundColor('white');
+        Body.setColor('black');
+
+        self.value = 'night';
+        Links.setColor('blue');
+      }
+    }
+
+
 </script>
 </head>
 <body>
   <h1><a href="index.html">아티 arty</a></h1>
-  <ol>
-    <li><a href="1.html">소개 about</a></li>
-    <li><a href="2.html">전시 exhibition</a></li>
-    <li><a href="3.html">문의와 제안 contact</a></li>
-  </ol>
+  <!--
+  <input type="button" value="night" onclick="
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';">
 
-  <h1><strong>문의와 제안 contact</strong></h1>
-  <br><h4>세상에 널리 알리고 싶은 전시를 소개해주세요.</h4>
-
-
+  <input type="button" value="day" onclick="
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';">
+  -->
+  <input id="night_day" type="button" value="night" onclick ="
+  if(document.querySelector('#night_day').value === 'night'){
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';
+    document.querySelector('#night_day').value = 'day';
+  }
+  else{
+    document.querySelector('body').style.backgroundColor = 'white';
+    document.querySelector('body').style.color = 'black';
+    document.querySelector('#night_day').value = 'night';
+  }
+  ">
+  <!-- 검색어 : js element get value(가져온다)-->
+  <div id="grid">
+    <ol>
+      <li><a href="1.html" class="saw">소개 about</a></li>
+      <li><a href="2.html" class="saw" >전시 exhibition</a></li>
+      <li><a href="3.html" id="active">문의와 제안 contact</a></li>
+    </ol>
+    <div id="article">
+      <p>
+        <h3><strong>문의와 제안 contact</strong></h3>
+        <br><h4>세상에 널리 알리고 싶은 전시를 소개해주세요.</h4>
+      </p>
+    </div>
+  </div>
+  <input id="night_day2" type="button" value="night" onclick ="
+    nightDayHandler(this);
+  ">
 </body>
 </html>

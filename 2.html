@@ -1,28 +1,37 @@
 <!doctype html>
 <html>
 <head>
-<title>아티 arty</title>
-<meta charset="utf-8">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4LS04RTYL"></script>
-<script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="colors.js">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-K4LS04RTYL');
+
+
 </script>
 </head>
 <body>
   <h1><a href="index.html">아티 arty</a></h1>
-  <ol>
-    <li><a href="1.html">소개 about</a></li>
-    <li><a href="2.html">전시 exhibition</a></li>
-    <li><a href="3.html">문의와 제안 contact</a></li>
-  </ol>
-
-  <h1><strong>전시 exhibition</strong></h1>
-  <br><h4>열린 전시</h4>
-
-  </body>
+  <input id="night_day2" type="button" value="night" onclick ="
+    nightDayHandler(this);
+  ">
+  <div id="grid">
+    <ol>
+      <li><a href="1.html" class="saw" >소개 about</a></li>
+      <li><a href="2.html" id="active">전시 exhibition</a></li>
+      <li><a href="3.html"class="saw">문의와 제안 contact</a></li>
+    </ol>
+    <div id="article">
+      <h3><strong>전시 exhibition</strong></h3>
+      <br><h4>열린 전시</h4>
+    </div>
+  </div>
+</body>
 </html>
